@@ -4,8 +4,6 @@
 
         <!-- Table-->
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
                     <h1 class="text-center">Материалы</h1>
                     <!--Add button -->
                     <a href="/addMaterial" class="btn btn-primary">Добавить материал</a>
@@ -17,7 +15,7 @@
                             <th scope="col">Ед. изм.</th>
                             <th scope="col">Документы</th>
                             <th scope="col">ГОСТ, ТУ</th>
-                            <th scope="col">Действие</th>
+                            <th scope="col" style="width:15%">Действие</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -34,9 +32,7 @@
                           </tr>
                         </tbody>
                       </table>
-                </div>
             </div>
-        </div>
     </main>
 </template>
 

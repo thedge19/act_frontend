@@ -16,7 +16,7 @@
                             <th scope="col">Наименование</th>
                             <th scope="col">Обозначение</th>
                             <th scope="col">Объект</th>
-                            <th scope="col">Действие</th>
+                            <th scope="col" style="width:15%">Действие</th>
                           </tr>
                         </thead>
                         <tbody>

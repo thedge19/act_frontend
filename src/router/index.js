@@ -15,6 +15,16 @@ const router = createRouter({
       component: Home
     },
     {
+      path: '/addAct',
+      name: 'addAct',
+      component: () => import('../views/AddAct.vue')
+    },
+    {
+      path: '/editAct',
+      name: 'editAct',
+      component: () => import('../views/EditAct.vue')
+    },
+    {
       path: '/projects',
       name: 'viewProjects',
       component: ViewProjects
