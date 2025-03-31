@@ -50,7 +50,8 @@ import Navbar from '../../components/Navbar.vue'
         },
         data() {
             return {
-                subObjects: []
+                subObjects: [],
+                projectId: null
             }
         },
 
@@ -60,8 +61,7 @@ import Navbar from '../../components/Navbar.vue'
 
         methods: {
             getSubObjects(){
-                fetch('http://localhost:8080/subobjects',
-
+                fetch('http://localhost:8080/subobjects/4',
                 )
                 .then(res => res.json())
                 .then(data => {

@@ -10,7 +10,6 @@
                     <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">Id</th>
                             <th scope="col">Наименование</th>
                             <th scope="col">Ед. изм.</th>
                             <th scope="col">Документы</th>
@@ -20,7 +19,6 @@
                         </thead>
                         <tbody>
                           <tr v-for="material in materials" :key="material.id">
-                            <th scope="row">{{material.id}}</th>
                             <td>{{material.name}}</td>
                             <td>{{material.units}}</td>
                             <td>{{material.documents}}</td>

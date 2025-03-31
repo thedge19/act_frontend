@@ -1,226 +1,63 @@
 <template>
-    <main>
-        <Navbar/>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-24">
-                    <h1 class="text-center">Работы</h1>
-                    <!--Add button -->
-                    <a href="/addAct" class="btn btn-primary">Добавить акт</a>
-                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
-                         style="position: relative">
-                        <table class="table table-striped mb-0">
-                            <thead style="background-color: #002d72;">
-                            <tr style="color: red;">
-                                <th scope="col" style="color: black;">Class name</th>
-                                <th scope="col" style="color: black;">Type</th>
-                                <th scope="col" style="color: black;">Hours</th>
-                                <th scope="col" style="color: black;">Trainer</th>
-                                <th scope="col" style="color: black;">Spots</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Like a butterfly</td>
-                                <td>Boxing</td>
-                                <td>9:00 AM - 11:00 AM</td>
-                                <td>Aaron Chapman</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Mind &amp; Body</td>
-                                <td>Yoga</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Adam Stewart</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>Crit Cardio</td>
-                                <td>Gym</td>
-                                <td>9:00 AM - 10:00 AM</td>
-                                <td>Aaron Chapman</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Wheel Pose Full Posture</td>
-                                <td>Yoga</td>
-                                <td>7:00 AM - 8:30 AM</td>
-                                <td>Donna Wilson</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>Playful Dancer's Flow</td>
-                                <td>Yoga</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Donna Wilson</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Zumba Dance</td>
-                                <td>Dance</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Zumba Dance</td>
-                                <td>Dance</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Zumba Dance</td>
-                                <td>Dance</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Zumba Dance</td>
-                                <td>Dance</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Cardio Blast</td>
-                                <td>Gym</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Randy Porter</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Pilates Reformer</td>
-                                <td>Gym</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Randy Porter</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Supple Spine and Shoulders</td>
-                                <td>Yoga</td>
-                                <td>6:30 AM - 8:00 AM</td>
-                                <td>Randy Porter</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>Yoga for Divas</td>
-                                <td>Yoga</td>
-                                <td>9:00 AM - 11:00 AM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Virtual Cycle</td>
-                                <td>Gym</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Randy Porter</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Like a butterfly</td>
-                                <td>Boxing</td>
-                                <td>9:00 AM - 11:00 AM</td>
-                                <td>Aaron Chapman</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Mind &amp; Body</td>
-                                <td>Yoga</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Adam Stewart</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>Crit Cardio</td>
-                                <td>Gym</td>
-                                <td>9:00 AM - 10:00 AM</td>
-                                <td>Aaron Chapman</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Wheel Pose Full Posture</td>
-                                <td>Yoga</td>
-                                <td>7:00 AM - 8:30 AM</td>
-                                <td>Donna Wilson</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>Playful Dancer's Flow</td>
-                                <td>Yoga</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Donna Wilson</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Zumba Dance</td>
-                                <td>Dance</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Cardio Blast</td>
-                                <td>Gym</td>
-                                <td>5:00 PM - 7:00 PM</td>
-                                <td>Randy Porter</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Pilates Reformer</td>
-                                <td>Gym</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Randy Porter</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Supple Spine and Shoulders</td>
-                                <td>Yoga</td>
-                                <td>6:30 AM - 8:00 AM</td>
-                                <td>Randy Porter</td>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <td>Yoga for Divas</td>
-                                <td>Yoga</td>
-                                <td>9:00 AM - 11:00 AM</td>
-                                <td>Donna Wilson</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Virtual Cycle</td>
-                                <td>Gym</td>
-                                <td>8:00 AM - 9:00 AM</td>
-                                <td>Randy Porter</td>
-                                <td>20</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+  <main>
+    <Navbar/>
+    <div class="container">
+      <div class="row">
+        <div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+          <h1 class="text-center">Работы</h1>
+          <!--Add button -->
+          <div class="d-flex justify-content-start">
+            <a href="/addAct" class="btn btn-outline-primary">Добавить акт</a>
+            <a href="/excel" class="btn btn-outline-success mx-3">Выгрузить в Excel</a>
+          </div>
+          <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+               style="position: relative">
+            <table class="table table-striped mb-0">
+              <thead style="background-color: #002d72;">
+              <tr style="color: red;">
+                <th class="text-center" scope="col" style="color: black; width: 6%">##</th>
+                <th class="text-center" scope="col" style="color: black; width: 5%">Дата</th>
+                <th class="text-center" scope="col" style="color: black; width: 10%">Объект</th>
+                <th class="text-center" scope="col" style="color: black; width: 15%">Выполненные
+                  работы
+                </th>
+                <th class="text-center" scope="col" style="color: black; width: 6%">Начало</th>
+                <th class="text-center" scope="col" style="color: black; width: 35%">Материалы</th>
+                <th class="text-center" scope="col" style="color: black; width: 20%">Предъявлены
+                  документы
+                </th>
+                <th class="text-center" scope="col" style="color: black; width: 20%">Выполнено в
+                  соответствии с
+                </th>
+                <th class="text-center" scope="col" style="color: black; width: 15%">Разрешается
+                  выполнение
+                </th>
+                <th class="text-center" scope="col" style="color: black; width: 12%">Действие</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="act in acts">
+                <td style="width: 6%">{{ act.actNumber }}</td>
+                <td style="width: 4%">{{ act.endDate }}</td>
+                <td style="width: 10%">{{ act.projectName }}</td>
+                <td style="width: 15%">{{ act.works }}</td>
+                <td style="width: 6%">{{ act.startDate }}</td>
+                <td style="width: 35%">{{ act.materials }}</td>
+                <td style="width: 20%">{{ act.submittedDocuments }}</td>
+                <td style="width: 20%">{{ act.inAccordWith }}</td>
+                <td style="width: 15%">{{ act.nextWorks }}</td>
+                <td style="width: 12%">
+                  <a class="btn btn-primary" :href="`/editAct/${act.id}`">Edit</a>
+                  <button class="btn btn-danger mx-2" @click="deleteAct(act.id)">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="container">
-            <div class="mx-auto w-128" style="max-width:100%;">
-                <section class="intro">
-                    <div class="bg-image" style="background-color: #f5f7fa;">
-                        <div class="mask d-flex align-items-center">
-                            <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-12">
-                                        <div class="card-body p-0">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </main>
+      </div>
+    </div>
+  </main>
 </template>
 
 
@@ -228,38 +65,48 @@
 import Navbar from '../components/Navbar.vue';
 
 export default {
-    name: 'AddMaterial',
-    components: {
-        Navbar
+  name: 'Home',
+  components: {
+    Navbar
+  },
+
+  data() {
+    return {
+      acts: []
+    }
+  },
+
+  mounted() {
+    this.getActs()
+  },
+
+  methods: {
+    getActs() {
+      fetch('http://localhost:8080/acts',
+      )
+          .then(res => res.json())
+          .then(data => {
+            this.acts = data
+            console.log(data)
+          })
+    },
+    deleteAct(id) {
+      fetch(`http://localhost:8080/acts/${id}`, {
+        method: 'DELETE'
+      })
+          .then(data => {
+            console.log(data)
+            this.getActs()
+          })
     },
 
-    // data() {
-    //     return {
-    //         material: {
-    //             name: '',
-    //             units: '',
-    //             documents: '',
-    //             standard: ''
-    //         }
-    //     }
-    // },
-    //
-    // methods: {
-    //     addAct() {
-    //         fetch('http://localhost:8080/materials', {
-    //             mode: 'no-cors',
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(this.patient)
-    //         })
-    //             .then(data => {
-    //                 console.log(data)
-    //                 this.$router.push("/");
-    //             })
-    //     }
-    // },
+    fillInTheLog() {
+      fetch(`http://localhost:8080/worklog`)
+      .then(data =>
+      {console.log("Запрос отправлен")})
+    }
+
+  },
 
 }
 </script>
@@ -267,34 +114,39 @@ export default {
 html,
 body,
 .intro {
-    height: 100%;
+  height: 100%;
 }
+
+table {
+  table-layout: fixed;
+}
+
 
 table td,
 table th {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 thead th {
-    color: #fff;
+  color: #fff;
 }
 
 .card {
-    border-radius: .5rem;
+  border-radius: .5rem;
 }
 
 .table-scroll {
-    border-radius: .5rem;
+  border-radius: .5rem;
 }
 
 .table-scroll table thead th {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 thead {
-    top: 0;
-    position: sticky;
+  top: 0;
+  position: sticky;
 }
 </style>

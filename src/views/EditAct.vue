@@ -1,35 +1,75 @@
+<script setup>
+    import Navbar from "@/components/Navbar.vue";
+</script>
 <template>
-    <div class="container mt-5 mb-5 d-flex justify-content-center">
-        <div class="card px-1 py-4">
-            <div class="card-body">
-                <h6 class="card-title mb-3">This appointment is for</h6>
-                <div class="d-flex flex-row"> <label class="radio mr-1"> <input type="radio" name="add" value="anz" checked> <span> <i class="fa fa-user"></i> Anz CMK </span> </label> <label class="radio"> <input type="radio" name="add" value="add"> <span> <i class="fa fa-plus-circle"></i> Add </span> </label> </div>
-                <h6 class="information mt-4">Please provide following information about Anz CMK</h6>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <!-- <label for="name">Name</label> --> <input class="form-control" type="text" placeholder="Name"> </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <div class="input-group"> <input class="form-control" type="text" placeholder="Mobile"> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <div class="input-group"> <input class="form-control" type="text" placeholder="Email ID"> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a> </div> <button class="btn btn-primary btn-block confirm-button">Confirm</button>
-            </div>
+    <Navbar/>
+  <div class="my-5">
+    <div class="mx-auto w-25 " style="max-width:100%;">
+      <h2 class="text-center mb-3">Редактирование акта</h2>
+      <form @submit.prevent="updateAct">
+
+        <div class="row">
+          <div class="col-md-12 form-group mb-3">
+            <label for="name" class="form-label">Работы</label>
+            <textarea class="form-control h-auto" id="name" type="text" name="name"
+                   required v-model="act.works">
+            </textarea>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-12 form-group" style="width: 50%">
+            <input class="btn btn-primary w-30" type="submit" value="Submit">
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </template>
+<script>
+
+export default {
+  name: 'UpdateWork',
+
+  data() {
+    return {
+      act: {
+        id: '',
+        works: ''
+      }
+    }
+  },
+
+  mounted() {
+    this.getAct();
+  },
+
+  methods: {
+    getAct() {
+      fetch(`http://localhost:8080/acts/update/${this.$route.params.id}`,)
+          .then(res => res.json())
+          .then(data => {
+            this.act = data
+            console.log(data)
+          })
+    },
+
+    updateAct() {
+      fetch(`http://localhost:8080/acts/${this.$route.params.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.act)
+      })
+          .then(data => {
+            console.log(data);
+            this.$router.push('/');
+          })
+    },
+  }
+}
+
+</script>
 
 <style scoped>
 body{background-color:#FFEBEE}.card{width:400px;background-color:#fff;border:none;border-radius: 12px}
