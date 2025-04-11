@@ -15,37 +15,37 @@
             <table class="table table-striped mb-0">
               <thead style="background-color: #002d72;">
               <tr style="color: red;">
-                <th class="text-center" scope="col" style="color: black; width: 6%">##</th>
+                <th href="#" @click.prevent="filterBySubObject" class="text-center" scope="col" style="color: black; width: 6%">##</th>
                 <th class="text-center" scope="col" style="color: black; width: 5%">Дата</th>
-                <th class="text-center" scope="col" style="color: black; width: 10%">Объект</th>
-                <th class="text-center" scope="col" style="color: black; width: 15%">Выполненные
+                <th class="text-center" scope="col" style="color: black; width: 15%">Объект</th>
+                <th class="text-center" scope="col" style="color: black; width: 20%">Выполненные
                   работы
                 </th>
                 <th class="text-center" scope="col" style="color: black; width: 6%">Начало</th>
-                <th class="text-center" scope="col" style="color: black; width: 35%">Материалы</th>
+                <th class="text-center" scope="col" style="color: black; width: 25%">Материалы</th>
                 <th class="text-center" scope="col" style="color: black; width: 20%">Предъявлены
                   документы
                 </th>
-                <th class="text-center" scope="col" style="color: black; width: 20%">Выполнено в
+                <th class="text-center" scope="col" style="color: black; width: 25%">Выполнено в
                   соответствии с
                 </th>
-                <th class="text-center" scope="col" style="color: black; width: 15%">Разрешается
+                <th class="text-center" scope="col" style="color: black; width: 20%">Разрешается
                   выполнение
                 </th>
                 <th class="text-center" scope="col" style="color: black; width: 12%">Действие</th>
               </tr>
               </thead>
               <tbody>
-              <tr v-for="act in acts">
+              <tr v-for="act in acts" :style="act.inRegistry === null ? `font-weight: bold` : ``">
                 <td style="width: 6%">{{ act.actNumber }}</td>
                 <td style="width: 4%">{{ act.endDate }}</td>
-                <td style="width: 10%">{{ act.projectName }}</td>
-                <td style="width: 15%">{{ act.works }}</td>
+                <td style="width: 15%">{{ act.projectName }}</td>
+                <td style="width: 20%">{{ act.works }}</td>
                 <td style="width: 6%">{{ act.startDate }}</td>
-                <td style="width: 35%">{{ act.materials }}</td>
+                <td style="width: 25%">{{ act.materials }}</td>
                 <td style="width: 20%">{{ act.submittedDocuments }}</td>
-                <td style="width: 20%">{{ act.inAccordWith }}</td>
-                <td style="width: 15%">{{ act.nextWorks }}</td>
+                <td style="width: 25%">{{ act.inAccordWith }}</td>
+                <td style="width: 20%">{{ act.nextWorks }}</td>
                 <td style="width: 12%">
                   <a class="btn btn-primary" :href="`/editAct/${act.id}`">Edit</a>
                   <button class="btn btn-danger mx-2" @click="deleteAct(act.id)">Delete</button>
@@ -72,7 +72,8 @@ export default {
 
   data() {
     return {
-      acts: []
+      acts: [],
+      path: 'http://localhost:8080/acts',
     }
   },
 
@@ -82,7 +83,7 @@ export default {
 
   methods: {
     getActs() {
-      fetch('http://localhost:8080/acts',
+      fetch(this.path,
       )
           .then(res => res.json())
           .then(data => {
@@ -90,6 +91,7 @@ export default {
             console.log(data)
           })
     },
+
     deleteAct(id) {
       fetch(`http://localhost:8080/acts/${id}`, {
         method: 'DELETE'
@@ -100,11 +102,10 @@ export default {
           })
     },
 
-    fillInTheLog() {
-      fetch(`http://localhost:8080/worklog`)
-      .then(data =>
-      {console.log("Запрос отправлен")})
-    }
+    filterBySubObject() {
+      this.path = `http://localhost:8080/acts/filterBySubObject`
+      this.getActs()
+    },
 
   },
 

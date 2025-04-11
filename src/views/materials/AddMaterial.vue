@@ -34,6 +34,13 @@
           </div>
           <div class="row">
             <div class="col-md-12 form-group mb-3">
+              <label for="pNo" class="form-label">Автор сертификата</label>
+              <input id="author" type="text" name="author" class="form-control"
+                     placeholder="Автор сертификата" required v-model="material.author">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 form-group mb-3">
               <label for="numberOfPages" class="form-label">Число страниц в сертификате (паспорте)</label>
               <input id="numberOfPages" type="number" name="numberOfPages" class="form-control"
                      placeholder="0" required v-model="material.numberOfPages">
@@ -75,6 +82,7 @@ export default {
         name: '',
         units: '',
         documents: '',
+        author: '',
         standard: '',
         numberOfPages: ''
       }

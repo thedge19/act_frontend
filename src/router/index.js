@@ -125,6 +125,16 @@ const router = createRouter({
       name: 'viewWorkLog6',
       component: () => import('../views/workLog/WorkLog6.vue')
     },
+    {
+      path: '/registry',
+      name: 'registry',
+      component: () => import('../views/registry/ViewRegistry.vue')
+    },
+    {
+      path: '/editRegistry/:id',
+      name: 'editRegistry',
+      component: () => import('../views/registry/UpdateRegistry.vue')
+    },
   ]
 })
 

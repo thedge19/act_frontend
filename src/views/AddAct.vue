@@ -54,7 +54,7 @@ import Navbar from "@/components/Navbar.vue";
               <label class="pt-3" style="width: 3%">{{ currentWork.units }}</label>
               <label class="pt-3" style="width: 3%">{{ currentWork.finalQuantity }}</label>
               <!--                            </div>-->
-              <input style="width: 35%" class="form-control" type="number" step="0.01"
+              <input style="width: 35%" class="form-control" type="number" step="0.001"
                      v-model="workDone">
             </div>
           </div>
@@ -106,7 +106,7 @@ import Navbar from "@/components/Navbar.vue";
               <div>
                 <label class="pt-3" style="width: 3%">{{ firstMaterial.units }}</label>
               </div>
-              <input style="width: 35%" class="form-control" type="number" step="0.01"
+              <input style="width: 35%" class="form-control" type="number" step="0.001"
                      v-model="firstMaterial.quantity">
             </div>
 
@@ -172,7 +172,7 @@ import Navbar from "@/components/Navbar.vue";
               <div>
                 <label class="pt-3" style="width: 3%">{{ fifthMaterial.units }}</label>
               </div>
-              <input style="width: 35%" class="form-control" type="number" step="0.01"
+              <input style="width: 35%" class="form-control" type="number" step="0.001"
                      v-model="fifthMaterial.quantity">
             </div>
 
@@ -192,7 +192,7 @@ import Navbar from "@/components/Navbar.vue";
             <div class="d-flex justify-content-between">
               <select class="form-select" style="width: 50%" id="inputGroupSelect02"
                       v-model="nextWorkId">
-                <option selected>н/п</option>
+                <option selected></option>
                 <option v-for="work in works" :value="work.id">{{
                     work.name
                   }}
@@ -227,9 +227,9 @@ export default {
         finalQuantity: 0.1
       },
 
-      projectId: 5,
-      subObjectId: 28,
-      workId: 4,
+      projectId: 4,
+      subObjectId: 8,
+      workId: null,
       nextWorkId: null,
       workDone: "",
       startDate: new Date(),
@@ -296,6 +296,14 @@ export default {
         this.errors.push('Заполните объём работ.');
       }
 
+      if (this.workId === null || this.workId === undefined) {
+        this.errors.push("Укажите работы.")
+      }
+
+      if (this.materialQuantity !== this.addMaterials().length) {
+        this.errors.push("Добавьте материалы")
+      }
+
       if (this.errors.length === 0) {
         this.addAct();
       }
@@ -355,7 +363,7 @@ export default {
           })
     },
     getWorks() {
-      fetch(`http://localhost:8080/workings/${this.subObjectId}`,
+      fetch(`http://localhost:8080/workings/undone/${this.subObjectId}`,
       )
           .then(res => res.json())
           .then(data => {

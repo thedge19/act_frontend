@@ -53,7 +53,7 @@
           <div class="row">
             <div class="col-md-12 form-group mb-3">
               <label for="pNo" class="form-label">Количество</label>
-              <input id="quantity" type="number" step="0.01" name="quantity" class="form-control"
+              <input id="quantity" type="number" step="0.001" name="quantity" class="form-control"
                      placeholder="Количество" required v-model="work.quantity">
             </div>
           </div>
@@ -93,7 +93,7 @@ export default {
 
   data() {
     return {
-      projectId: 4,
+      projectId: 5,
 
       subObjects: [],
       standards: [],
@@ -104,7 +104,7 @@ export default {
         quantity: '',
         done: 0,
         standardId: '',
-        subObjectId: 15
+        subObjectId: 34
       }
     }
   },

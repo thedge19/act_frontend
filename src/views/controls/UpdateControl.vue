@@ -1,54 +1,27 @@
 <template>
-    <main>
-        <Navbar/>
-        <div class="my-5">
-            <div class="mx-auto w-25 " style="max-width:100%;">
-                <h2 class="text-center mb-3">Update Material</h2>
-                <form @submit.prevent="updateMaterial">
-                    <!--name-->
-                    <div class="row">
-                        <div class="col-md-12 form-group mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input id="name" type="text" name="name" class="form-control" placeholder="Name" required
-                                   v-model="material.name">
-                        </div>
-                    </div>
-
-
-                    <!--Email-->
-                    <div class="row">
-                        <div class="col-md-12 form-group mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input id="email" type="email" name="email" class="form-control" placeholder="email"
-                                   required v-model="material.email">
-                        </div>
-                    </div>
-
-                    <!--Phone Number-->
-                    <div class="row">
-                        <div class="col-md-12 form-group mb-3">
-                            <label for="pNo" class="form-label">Phone Number</label>
-                            <input id="pNo" type="text" name="pNo" class="form-control" placeholder="Phone Number"
-                                   required v-model="material.pNo">
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-12 form-group">
-                            <input class="btn btn-primary w-100" type="submit" value="Submit">
-                        </div>
-                    </div>
-
-                    <div>
-
-                    </div>
-                </form>
-
+  <main>
+    <Navbar/>
+    <div class="my-5">
+      <div class="mx-auto w-25 " style="max-width:100%;">
+        <h3 class="text-center mb-3">Редактирование акта входного контроля № {{ control.controlNumber }}</h3>
+        <h3 class="text-center mb-3">{{ control.materials }}</h3>
+        <form @submit.prevent="updateControl">
+          <!--name-->
+          <div class="row mt-3" style="width:30%;">
+            <div class="col-md-12 form-group">
+              <input v-model="author">
             </div>
-        </div>
-
-    </main>
+          </div>
+          <div class="row mt-3" style="width:30%;">
+            <div class="col-md-12 form-group">
+              <input v-model="controlSheetNumbers" type="number">
+            </div>
+          </div>
+          <button class="btn btn-primary w-50 mt-3" type="submit">Обновить</button>
+        </form>
+      </div>
+    </div>
+  </main>
 </template>
 
 
@@ -56,51 +29,62 @@
 import Navbar from '../../components/Navbar.vue';
 
 export default {
-    name: 'UpdateMaterial',
-    components: {
-        Navbar
-    },
+  name: 'UpdateControl',
+  components: {
+    Navbar
+  },
 
-    data() {
-        return {
-            material: {
-                id: '',
-                name: '',
-                units: '',
-                documents: '',
-                standard: ''
-            }
-        }
-    },
+  data() {
+    return {
+      control: {},
 
-    beforeMount() {
-        this.getMaterials();
-    },
+      authors: ['000 «Керама Марацци»',
+        'Soudal NV', 'АО "АРИКОН"', 'ВОЛМА-ВОСКРЕСЕНСК', 'ЗАО "ВМЗ"',
+        'ЗАО "ЭНЕРГОКОМПЛЕКТ"',
+        'Качественные смеси', 'МЗ БАЛАКОВО', 'НISENER INDUSTRIAL',
+        'ООО "ВОЛМА-Байкал"', 'ООО "Грида"', 'ООО "ДЗ1"', 'ООО "ДКС"',
+        'ООО "КАЗ"', 'ООО "Калита"', 'ООО "ОСНОВА"', 'ООО "ПК "СТАНК""',
+        'ООО "РТЗ"', 'ООО "УГЛИЧКАБЕЛЬ"', 'ООО «БКУ»', 'ООО «ЗЛКС»',
+        'ООО «ЗЛКС»', 'ООО НПО "СПЕКТР"', 'ПАО "НМЗ"', 'ПАО "НМЗ"', 'УГМК СТАЛЬ'],
 
-    methods: {
-        getMaterials() {
-            fetch(`http://localhost:8080/material/${this.$route.params.id}`)
-                .then(res => res.json())
-                .then(data => {
-                    this.material = data;
-                    console.log(this.material);
-                })
-
-        },
-        updateMaterial() {
-            fetch(`http://localhost:8080/material`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.material)
-            })
-                .then(data => {
-                    console.log(data);
-                    this.$router.push('/');
-                })
-        }
+      id: '',
+      author: '',
+      controlSheetNumbers: null,
     }
+  },
+
+  mounted() {
+    this.getControl();
+  },
+
+  methods: {
+    getControl() {
+      fetch(`http://localhost:8080/acts/entrance/${this.$route.params.id}`)
+          .then(res => res.json())
+          .then(data => {
+            this.control = data;
+            console.log(this.control);
+          })
+
+    },
+    updateControl() {
+      fetch(`http://localhost:8080/acts/entrance/${this.$route.params.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: this.$route.params.id,
+          author: this.author,
+          controlSheetNumbers: this.controlSheetNumbers,
+        })
+      })
+          .then(data => {
+            console.log(data);
+            this.$router.push('/controls');
+          })
+    }
+  }
 }
 
 </script>

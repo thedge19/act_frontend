@@ -69,7 +69,7 @@ export default {
     return {
       works: [],
       subObjects: [],
-      subObjectId: 28,
+      subObjectId: 34,
     }
   },
 

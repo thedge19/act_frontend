@@ -13,7 +13,9 @@
                             <th scope="col">Наименование</th>
                             <th scope="col">Ед. изм.</th>
                             <th scope="col">Документы</th>
+                            <th scope="col">Автор</th>
                             <th scope="col">ГОСТ, ТУ</th>
+                            <th scope="col">Кол. стр.</th>
                             <th scope="col" style="width:15%">Действие</th>
                           </tr>
                         </thead>
@@ -22,7 +24,9 @@
                             <td>{{material.name}}</td>
                             <td>{{material.units}}</td>
                             <td>{{material.documents}}</td>
+                            <td>{{material.author}}</td>
                             <td>{{material.standard}}</td>
+                            <td>{{material.numberOfPages}}</td>
                             <td>
                               <a class="btn btn-primary" :href="`/editMaterial/${material.id}`">Edit</a>
                               <button class="btn btn-danger mx-2" @click="deleteMaterial(material.id)">Delete</button>
