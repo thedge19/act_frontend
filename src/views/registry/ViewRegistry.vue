@@ -228,9 +228,6 @@ export default {
 <style scoped>
 html,
 body,
-.intro {
-  height: 100%;
-}
 
 table {
   table-layout: fixed;
@@ -246,10 +243,6 @@ table th {
 
 thead th {
   color: #fff;
-}
-
-.card {
-  border-radius: .5rem;
 }
 
 .table-scroll {

@@ -78,18 +78,6 @@ body {
   background-color: #FFEBEE
 }
 
-.card {
-  width: 400px;
-  background-color: #fff;
-  border: none;
-  border-radius: 12px
-}
-
-label.radio {
-  cursor: pointer;
-  width: 100%
-}
-
 label.radio input {
   position: absolute;
   top: 0;
@@ -128,20 +116,5 @@ label.radio input:checked + span {
 .form-control:focus {
   box-shadow: none;
   border: 2px solid #039BE5
-}
-
-.agree-text {
-  font-size: 12px
-}
-
-.terms {
-  font-size: 12px;
-  text-decoration: none;
-  color: #039BE5
-}
-
-.confirm-button {
-  height: 50px;
-  border-radius: 10px
 }
 </style>
